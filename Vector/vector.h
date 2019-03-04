@@ -4,6 +4,7 @@
 #include <iostream>
 #include <fstream>
 #include <ctime>
+#include <stdio.h>
 
 using namespace std;
 //-----------------------------------------------------------------------------
@@ -28,6 +29,7 @@ class vector
   friend vector operator/ (const vector& a, const vector_data& b);
 
   friend char operator== (const vector& a, const vector& b);
+  friend char operator!= (const vector& a, const vector& b);
 
   friend ostream &operator<< (ostream& out, const vector& a);
   friend istream &operator>> (istream& in,  const vector& a);

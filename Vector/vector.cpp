@@ -54,8 +54,11 @@ char vector::resize (vector_pars count)
     {
       new_data[i] = data_[i];
     }
+    clear (VECTOR_POISON);
     delete[] data_;
-    data_ = new_data;
+
+    data_     = new_data;
+    capacity_ = count;
 
     return 0;
   }
@@ -66,8 +69,11 @@ char vector::resize (vector_pars count)
     {
       new_data[i] = data_[i];
     }
+    clear (VECTOR_POISON);
     delete[] data_;
-    data_ = new_data;
+
+    data_     = new_data;
+    capacity_ = count;
 
     return 0;
   }
@@ -217,13 +223,18 @@ vector operator/ (const vector& a, const vector_data& b)
 //-----------------------------------------------------------------------------
 char operator== (const vector& a, const vector& b)
 {
-  vector_pars capacity = min (a.capacity_, b.capacity_);
-  for (int i = 0; i < capacity; i++)
+  if (a.capacity_ != b.capacity_) return 0;
+  for (int i = 0; i < a.capacity_; i++)
   {
     if (a.data_[i] != b.data_[i]) return 0;
   }
 
   return 1;
+}
+//-----------------------------------------------------------------------------
+char operator!= (const vector& a, const vector& b)
+{
+  return !(a == b);
 }
 //-----------------------------------------------------------------------------
 ostream &operator<< (ostream& out, const vector& a)
@@ -232,6 +243,8 @@ ostream &operator<< (ostream& out, const vector& a)
   {
     out << a.data_[i] << " ";
   }
+
+  return out;
 }
 //-----------------------------------------------------------------------------
 istream &operator>> (istream& in, const vector& a)
@@ -240,5 +253,7 @@ istream &operator>> (istream& in, const vector& a)
   {
     in >> a.data_[i];
   }
+
+  return in;
 }
 //-----------------------------------------------------------------------------

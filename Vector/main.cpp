@@ -9,13 +9,14 @@ int main()
   {
     a[i] = i*i;
   }
-  vector b(5);
+  vector b(3);
   cin >> b;
-  cout << b;
+  cout << b << endl;
   //b.print ();
-  vector c;
-  c = a + b;
+  a.resize(3);
+  vector c = b;
+  //c = a + b;
   cout << c;
-  cout << int (a == b) << endl << a * c << endl;
+  cout << endl << (a == b) << endl << (a * c) << endl;
 }
 //-----------------------------------------------------------------------------
