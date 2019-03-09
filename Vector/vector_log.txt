@@ -1,0 +1,6 @@
+ # Vector was created with 5 size
+ # Vector was created with 3 size
+ # Vector was cleared with 0
+ # Vector was destroyed
+ # Vector was cleared with 0
+ # Vector was destroyed
