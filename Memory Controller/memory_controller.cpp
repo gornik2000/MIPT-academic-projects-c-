@@ -17,13 +17,13 @@ const char *log_file_memory_name = "memory_log.txt";
 FILE *log_file_memory            = fopen (log_file_memory_name, "w");
 //*/---------------------------------------------------------------------------
 
-void *operator new   (size_t size);
-void *operator new[] (size_t size);
+inline void *operator new   (size_t size);
+inline void *operator new[] (size_t size);
 
-void operator delete   (void *p) noexcept;
-void operator delete[] (void *p) noexcept;
+inline void operator delete   (void *p) noexcept;
+inline void operator delete[] (void *p) noexcept;
 //*/---------------------------------------------------------------------------
-void *operator new (size_t size)
+inline void *operator new (size_t size)
 {
   void *p = calloc (1, size);
 
@@ -40,7 +40,7 @@ void *operator new (size_t size)
   return p;
 }
 //*/---------------------------------------------------------------------------
-void *operator new[] (size_t size)
+inline void *operator new[] (size_t size)
 {
   void *p = calloc (1, size);
 
@@ -52,12 +52,13 @@ void *operator new[] (size_t size)
   {
     PRINT_LOGS ("%d allocated", p);
   }
-  PRINT_LOGS (" at %d\n", time(NULL));
+  PRINT_LOGS (" at %d", time(NULL));
+  PRINT_LOGS (" line %d\n", __LINE__);
 
   return p;
 }
 //*/---------------------------------------------------------------------------
-void operator delete (void *p) noexcept
+inline void operator delete (void *p) noexcept
 {
   PRINT_LOGS ("%d freed    ", p);
   PRINT_LOGS (" at %d\n", time(NULL));
@@ -65,8 +66,7 @@ void operator delete (void *p) noexcept
   free (p);
 }
 //*/---------------------------------------------------------------------------
-void operator delete[] (void *p, char *file_name,
-                        char *fn_name, int line) noexcept
+inline void operator delete[] (void *p) noexcept
 {
   PRINT_LOGS ("%d freed    ", p);
   PRINT_LOGS (" at %d\n", time(NULL));

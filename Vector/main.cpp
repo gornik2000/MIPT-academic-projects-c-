@@ -11,10 +11,11 @@ int main()
   {
     a[i] = i*i;
   }
-  vector b(3);
-  std::cin >> b;
+  vector b = a * 2;
+  //std::cin >> b;
   std::cout << b;
-
+  vector c = b;
+  std::cout << c * 2;
   return 0;
 
   fclose (log_file_memory);
