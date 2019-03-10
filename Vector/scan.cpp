@@ -11,10 +11,14 @@ const int   max_line_length       = 40;
 //*/---------------------------------------------------------------------------
 void memory_scan ()
 {
+  FILE *out = fopen (scan_file_name,        "w");
   FILE *in  = fopen (scan_file_memory_name, "r");
-  FILE *out = fopen (scan_file_name,   "w");
 
-  char *s = (char *)malloc (max_line_length);
+  if (out == NULL)  fprintf (out, " ! ERROR Log file was not found\n");
+  else              fprintf (out, " ! Started\n");
+  //char *s = (char *)malloc (max_line_length);
+  char    s[max_line_length] = {0};
+  char skip[max_line_length] = {0};
   char pointers[step]{0};
 
   int  pos = 0;
@@ -25,26 +29,28 @@ void memory_scan ()
 
   while (fgets (s, max_line_length, in) != NULL)
   {
-    sscanf (s, "%d %c", &num, &c);
+    sscanf (s, "%s # %d %c", &skip, &num, &c);
     pos = num%step;
+    //printf ("%d\n", num);
     if (c == 'a') pointers[pos] += 1;
     if (c == 'f') pointers[pos] -= 1;
 
-    if (pointers[pos] > 1) fprintf (out, "extra alloc %d\n", line);
-    if (pointers[pos] < 0) fprintf (out, "extra free  %d\n", line);
+    if (pointers[pos] > 1) fprintf (out, " ! extra alloc %d\n", line);
+    if (pointers[pos] < 0) fprintf (out, " ! extra free  %d\n", line);
 
     line++;
   }
 
   for (int i = 0; i < step; i++)
   {
-    if (pointers[i] < 0) fprintf (out, "lack of alloc %d\n", i);
-    if (pointers[i] > 0) fprintf (out, "lack of free  %d\n", i);
+    if (pointers[i] < 0) fprintf (out, " ! lack of alloc %d\n", i);
+    if (pointers[i] > 0) fprintf (out, " ! lack of free  %d\n", i);
   }
+  fprintf (out, " ! Ended\n");
 
   fclose (in);
   fclose (out);
-  free (s);
+  //free (s);
 }
 
 int main ()
