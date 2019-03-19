@@ -1,2 +1,5 @@
- ! Started
+ ! Started using 1000
+ ! lack of free  632
+ ! lack of free  680
+ ! lack of free  728
  ! Ended

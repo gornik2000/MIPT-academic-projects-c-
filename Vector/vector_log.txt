@@ -1,12 +1,12 @@
-23:51:15 # Vector  2686672 [ 6099264] was created with 5 size
-23:51:15 # Vector  2686664 [ 6099296] was created with 5 size
-23:51:15 # Vector  2686664 [ 6099296] was copied to  2686656 [ 6099328]
-23:51:15 # Vector  2686684 [ 6099360] was created with 5 size
-23:51:15 # Vector  2686684 [ 6099360] was cleared with 0
-23:51:15 # Vector  2686684 [ 6099360] was destroyed
-23:51:15 # Vector  2686656 [ 6099328] was cleared with 0
-23:51:15 # Vector  2686656 [ 6099328] was destroyed
-23:51:15 # Vector  2686664 [ 6099296] was cleared with 0
-23:51:15 # Vector  2686664 [ 6099296] was destroyed
-23:51:15 # Vector  2686672 [ 6099264] was cleared with 0
-23:51:15 # Vector  2686672 [ 6099264] was destroyed
+18:41:30 # Vector  2686648 [ 6754624] was created with 10 size
+18:41:30 # Vector  2686636 [ 6754672] was created with 10 size
+18:41:30 # Vector  2686636 [ 6754672] was copied to  2686624 [ 6754720]
+18:41:30 # Vector  2686664 [ 6754768] was created with 10 size
+18:41:30 # Vector  2686664 [ 6754768] was cleared with 0
+18:41:30 # Vector  2686664 [ 6754768] was destroyed
+18:41:30 # Vector  2686624 [ 6754720] was cleared with 0
+18:41:30 # Vector  2686624 [ 6754720] was destroyed
+18:41:30 # Vector  2686636 [ 6754672] was cleared with 0
+18:41:30 # Vector  2686636 [ 6754672] was destroyed
+18:41:30 # Vector  2686648 [ 6754624] was cleared with 0
+18:41:30 # Vector  2686648 [ 6754624] was destroyed

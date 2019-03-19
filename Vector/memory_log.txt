@@ -1,8 +1,8 @@
-23:51:15 #  6099264 allocated
-23:51:15 #  6099296 allocated
-23:51:15 #  6099328 allocated
-23:51:15 #  6099360 allocated
-23:51:15 #  6099360 freed    
-23:51:15 #  6099328 freed    
-23:51:15 #  6099296 freed    
-23:51:15 #  6099264 freed    
+18:41:30 #  6754624 allocated C:\Users\Lenovo\Documents\GitHub\MIPT-academic-projects-cpp\Vector\vector.cpp vector 43
+18:41:30 #  6754672 allocated C:\Users\Lenovo\Documents\GitHub\MIPT-academic-projects-cpp\Vector\vector.cpp vector 43
+18:41:30 #  6754720 allocated C:\Users\Lenovo\Documents\GitHub\MIPT-academic-projects-cpp\Vector\vector.cpp vector 29
+18:41:30 #  6754768 allocated C:\Users\Lenovo\Documents\GitHub\MIPT-academic-projects-cpp\Vector\vector.cpp vector 43
+18:41:30 #  6754768 freed     C:\Users\Lenovo\Documents\GitHub\MIPT-academic-projects-cpp\Vector\vector.cpp ~vector 55
+18:41:30 #  6754720 freed     C:\Users\Lenovo\Documents\GitHub\MIPT-academic-projects-cpp\Vector\vector.cpp ~vector 55
+18:41:30 #  6754672 freed     C:\Users\Lenovo\Documents\GitHub\MIPT-academic-projects-cpp\Vector\vector.cpp ~vector 55
+18:41:30 #  6754624 freed     C:\Users\Lenovo\Documents\GitHub\MIPT-academic-projects-cpp\Vector\vector.cpp ~vector 55
