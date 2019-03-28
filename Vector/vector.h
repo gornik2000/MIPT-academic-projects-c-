@@ -1,4 +1,6 @@
 //---------------------------------------------------------------------------*/
+//                             Header                                        //
+//---------------------------------------------------------------------------*/
 #undef private
 //---------------------------------------------------------------------------*/
 #include <iostream>
@@ -6,36 +8,41 @@
 //---------------------------------------------------------------------------*/
 #include <stdio.h>
 #include <stdlib.h>
-//---------------------------------------------------------------------------*/
-#define NEW new(__FILE__, __func__, __LINE__)
-#define DELETE(p)                                                             \
-{                                                                             \
-  PRINT_LOGS_MEM ("%8d freed     %s %s %d", p, __FILE__, __func__, __LINE__); \
-  delete p;                                                                   \
-}
+#include <string.h>
+#include <math.h>
 //---------------------------------------------------------------------------*/
 #ifdef DEBUG
   #define PRINT_LOGS_VTR(s, ...) \
-    fprintf(log_file_vector, "%s # " s "\n", __TIME__, ##__VA_ARGS__)
-  #define PRINT_LOGS_MEM(s, ...) \
-    fprintf(log_file_memory, "%s # " s "\n", __TIME__, ##__VA_ARGS__)
+    fprintf(log_file_vector, "%s " s "\n", __TIME__, ##__VA_ARGS__)
 #else
-  #define PRINT_LOGS_VTR(s)
-  #define PRINT_LOGS_MEM(s, lhs)
+  #define PRINT_LOGS_VTR(s, ...)
 #endif
 //---------------------------------------------------------------------------*/
+#include "..\Memory_controller\memory_controller.h"
+//---------------------------------------------------------------------------*/
+enum vector_poison
+{
+  VECTOR_POISON_CHAR      = 1,
+  VECTOR_POISON_INT       = 2,
+  VECTOR_POISON_FLOAT     = 3,
+  VECTOR_POISON_DOUBLE    = 4,
+  VECTOR_POISON_LONG_LONG = 5,
+  VECTOR_POISON_BOOL      = 6,
+};
+//---------------------------------------------------------------------------*/
+typedef size_t bool_t;
+size_t bool_cell = sizeof (bool_t) * 8;
+//---------------------------------------------------------------------------*/
 const char *log_file_vector_name = "vector_log.txt";
-const char *log_file_memory_name = "memory_log.txt";
-
-FILE *log_file_vector = fopen (log_file_vector_name, "w");
-FILE *log_file_memory = fopen (log_file_memory_name, "w");
+FILE       *log_file_vector      = fopen (log_file_vector_name, "w");
+//---------------------------------------------------------------------------*/
+//                        Class vector <data>                                //
 //---------------------------------------------------------------------------*/
 template <typename data>
 class vector
 {
   private:
     data  *data_;
-    data   poison_;
     size_t size_;
 
   public:
@@ -45,57 +52,63 @@ class vector
     vector  (size_t size);
     ~vector ();
 
-    char swap   (vector &that);
-    char print  ();
-    char clear  (data content = 0);
-    char resize (size_t count);
+    const size_t size   () const;
+    const data   poison () const;
 
-    const data &at   (size_t index) const;
+    void swap   (vector &that);
+    char resize (size_t count);
+    void clear  ();
+
+    data &at (size_t index);
     data &operator[] (size_t index);
+
+    const data &at (size_t index) const;
+    const data &operator[] (size_t index) const;
 
     const vector &operator= (const vector& that);
     const vector &operator= (vector&&      that);
-
-    const size_t size () const;
-
-  friend std::istream &operator>> (std::istream& in,  const vector& lhs);
 };
 //---------------------------------------------------------------------------*/
+//                        Class vector <bool>                                //
+//---------------------------------------------------------------------------*/
+#include "vector_bool.h"
+//---------------------------------------------------------------------------*/
+template <typename data>
+std::istream &operator>> (std::istream& in, vector<data>& lhs);
+
 template <typename data>
 std::ostream &operator<< (std::ostream& out, const vector<data>& lhs);
-
+//---------------------------------------------------------------------------*/
 template <typename data>
 char operator== (const vector<data>& lhs, const vector<data>& rhs);
+
 template <typename data>
 char operator!= (const vector<data>& lhs, const vector<data>& rhs);
-
+//---------------------------------------------------------------------------*/
 template <typename data>
 vector<data> operator+ (const vector<data>& lhs, const vector<data>& rhs);
+
 template <typename data>
 vector<data> operator+ (const vector<data>& lhs, const data& rhs);
+
 template <typename data>
 vector<data> operator+ (const data& lhs, const vector<data>& rhs);
-
+//---------------------------------------------------------------------------*/
 template <typename data>
 vector<data> operator- (const vector<data>& lhs, const vector<data>& rhs);
+
 template <typename data>
 vector<data> operator- (const vector<data>& lhs, const data& rhs);
-
+//---------------------------------------------------------------------------*/
 template <typename data>
 vector<data> operator* (const data& lhs, const vector<data>& rhs);
+
 template <typename data>
 vector<data> operator* (const vector<data>& lhs, const data& rhs);
-template <typename data>
-data operator* (const vector<data>& lhs, const vector<data>& rhs);
-
-template <typename data>
-vector<data> operator/ (const vector<data>& lhs, const data& rhs);
-
-inline void *operator new   (size_t size, const char* file, \
-                             const char *fun, int line);
-inline void *operator new[] (size_t size, const char* file, \
-                             const char *fun, int line);
-
-inline void operator delete   (void *p) noexcept;
-inline void operator delete[] (void *p) noexcept;
+//---------------------------------------------------------------------------*/
+#include "vector.cpp"
+//---------------------------------------------------------------------------*/
+//#undef PRINT_LOGS_VTR
+//---------------------------------------------------------------------------*/
+//                      © Gorbachev Nikita, March 2019                       //
 //---------------------------------------------------------------------------*/
