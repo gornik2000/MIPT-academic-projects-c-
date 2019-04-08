@@ -74,7 +74,7 @@ vector<bool>::vector (const vector<bool>& that):
   }
 //---------------------------------------------------------------------------*/
 vector<bool>::vector (size_t size):
-  data_   (NEW bool_t [size / bool_cell + 1]),
+  data_   (NEW bool_t [size / BOOL_CELL + 1]),
   size_   (size)
   {
     PRINT_LOGS_VTR ("Vector %8d [%8d] was created with %d size", \
@@ -102,7 +102,7 @@ const size_t vector<bool>::size () const
 const size_t vector<bool>::memsize () const
 {
   /* real given data_ size in bool_t */
-  return size_ / bool_cell + 1;
+  return size_ / BOOL_CELL + 1;
 }
 //---------------------------------------------------------------------------*/
 const char vector<bool>::poison () const
@@ -120,7 +120,7 @@ void vector<bool>::clear ()
 //---------------------------------------------------------------------------*/
 char vector<bool>::resize (size_t count)
 {
-  size_t memcount = count / bool_cell + 1;
+  size_t memcount = count / BOOL_CELL + 1;
   if (memcount == memsize())
   {
     PRINT_LOGS_VTR ("Vector %8d [%8d] size wasn't changed", \
@@ -158,8 +158,8 @@ vector<bool>::reference vector<bool>::at (size_t index)
     PRINT_LOGS_VTR ("ERROR index %d out of range", index);
   }
   vector<bool>::reference a;
-  a.arr_ = data_ + index / bool_cell;
-  a.num_ = index % bool_cell;
+  a.arr_ = data_ + index / BOOL_CELL;
+  a.num_ = index % BOOL_CELL;
 
   return a;
 }
@@ -167,8 +167,8 @@ vector<bool>::reference vector<bool>::at (size_t index)
 vector<bool>::reference vector<bool>::operator[] (size_t index)
 {
   vector<bool>::reference a;
-  a.arr_ = data_ + index / bool_cell;
-  a.num_ = index % bool_cell;
+  a.arr_ = data_ + index / BOOL_CELL;
+  a.num_ = index % BOOL_CELL;
 
   return a;
 }
@@ -180,8 +180,8 @@ const vector<bool>::reference vector<bool>::at (size_t index) const
     PRINT_LOGS_VTR ("ERROR index %d out of range", index);
   }
   vector<bool>::reference a;
-  a.arr_ = data_ + index / bool_cell;
-  a.num_ = index % bool_cell;
+  a.arr_ = data_ + index / BOOL_CELL;
+  a.num_ = index % BOOL_CELL;
 
   return a;
 }
@@ -189,8 +189,8 @@ const vector<bool>::reference vector<bool>::at (size_t index) const
 const vector<bool>::reference vector<bool>::operator[] (size_t index) const
 {
   vector<bool>::reference a;
-  a.arr_ = data_ + index / bool_cell;
-  a.num_ = index % bool_cell;
+  a.arr_ = data_ + index / BOOL_CELL;
+  a.num_ = index % BOOL_CELL;
 
   return a;
 }

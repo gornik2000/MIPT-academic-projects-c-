@@ -13,7 +13,7 @@
 //---------------------------------------------------------------------------*/
 #ifdef DEBUG
   #define PRINT_LOGS_VTR(s, ...) \
-    fprintf(log_file_vector, "%s " s "\n", __TIME__, ##__VA_ARGS__)
+    fprintf(LOG_FILE_VECTOR, "%s " s "\n", __TIME__, ##__VA_ARGS__)
 #else
   #define PRINT_LOGS_VTR(s, ...)
 #endif
@@ -30,11 +30,8 @@ enum vector_poison
   VECTOR_POISON_BOOL      = 6,
 };
 //---------------------------------------------------------------------------*/
-typedef size_t bool_t;
-size_t bool_cell = sizeof (bool_t) * 8;
-//---------------------------------------------------------------------------*/
-const char *log_file_vector_name = "vector_log.txt";
-FILE       *log_file_vector      = fopen (log_file_vector_name, "w");
+const char *LOG_FILE_VECTOR_NAME = "vector_log.txt";
+FILE       *LOG_FILE_VECTOR      = fopen (LOG_FILE_VECTOR_NAME, "w");
 //---------------------------------------------------------------------------*/
 //                        Class vector <data>                                //
 //---------------------------------------------------------------------------*/

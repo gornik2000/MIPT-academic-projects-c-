@@ -69,8 +69,8 @@ int main ()
 {
   fake_main2();
 
-  fclose (log_file_memory);
-  fclose (log_file_vector);
+  fclose (LOG_FILE_MEMORY);
+  fclose (LOG_FILE_VECTOR);
 
   int step = 1000;
   memory_scan (step);

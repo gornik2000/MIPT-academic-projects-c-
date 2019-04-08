@@ -1,7 +1,7 @@
 //---------------------------------------------------------------------------*/
 #ifdef DEBUG
   #define PRINT_LOGS_MEM(s, ...) \
-    fprintf(log_file_memory, "%s " s "\n", __TIME__, ##__VA_ARGS__)
+    fprintf(LOG_FILE_MEMORY, "%s " s "\n", __TIME__, ##__VA_ARGS__)
 #else
   #define PRINT_LOGS_MEM(s, ...)
 #endif
@@ -13,8 +13,8 @@
   delete p;                                                                   \
 }
 //---------------------------------------------------------------------------*/
-const char *log_file_memory_name = "memory_log.txt";
-FILE       *log_file_memory      = fopen (log_file_memory_name, "w");
+const char *LOG_FILE_MEMORY_NAME = "memory_log.txt";
+FILE       *LOG_FILE_MEMORY      = fopen (LOG_FILE_MEMORY_NAME, "w");
 //---------------------------------------------------------------------------*/
 inline void *operator new   (size_t size, const char* file, \
                              const char *fun, int line);

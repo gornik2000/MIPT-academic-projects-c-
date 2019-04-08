@@ -4,16 +4,16 @@
 #include <stdio.h>
 #include <string>
 //---------------------------------------------------------------------------*/
-const char *scan_file_name        = "memory_scan.txt";
-const char *scan_file_memory_name = "memory_log.txt";
+const char *SCAN_FILE_NAME        = "memory_scan.txt";
+const char *SCAN_FILE_MEMORY_NAME = "memory_log.txt";
 const int   MAX_LINE_LENGTH       = 150;
 //---------------------------------------------------------------------------*/
 void memory_scan (const size_t step)
 {
   printf (" # START scanning...\n");
 
-  FILE *out = fopen (scan_file_name,        "w");
-  FILE *in  = fopen (scan_file_memory_name, "r");
+  FILE *out = fopen (SCAN_FILE_NAME,        "w");
+  FILE *in  = fopen (SCAN_FILE_MEMORY_NAME, "r");
 
   if (out == NULL)  fprintf (out, " ! ERROR Log file was not found\n");
   else              fprintf (out, " ! Started using %d\n", step);
