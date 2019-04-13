@@ -1,6 +1,6 @@
-14:15:16 Vector  2686588 [ 9084640] was created with 10 size
-14:15:16 Vector  2686580 [ 9084656] was created with 10 size
-14:15:16 Vector  2686580 [ 9084656] was cleared with 6
-14:15:16 Vector  2686580 [ 9084656] was destroyed
-14:15:16 Vector  2686588 [ 9084640] was cleared with 6
-14:15:16 Vector  2686588 [ 9084640] was destroyed
+01:18:14 Vector  2686672 [ 3120544] was created with 39 size
+01:18:14 Vector  2686680 [ 3120608] was created with 39 size
+01:18:14 Vector  2686680 [ 3120608] was cleared with 6
+01:18:14 Vector  2686680 [ 3120608] was destroyed
+01:18:14 Vector  2686672 [ 3120544] was cleared with 6
+01:18:14 Vector  2686672 [ 3120544] was destroyed

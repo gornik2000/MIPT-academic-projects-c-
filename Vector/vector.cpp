@@ -149,7 +149,7 @@ void vector<data>::swap (vector<data> &that)
 template <typename data>
 data &vector<data>::at (size_t index)
 {
-  if (index >= size_)
+  if (index >= size_ || index < 0)
   {
     PRINT_LOGS_VTR ("ERROR index %d out of range", index);
   }
@@ -165,7 +165,7 @@ data &vector<data>::operator[] (size_t index)
 template <typename data>
 const data &vector<data>::at (size_t index) const
 {
-  if (index >= size_)
+  if (index >= size_ || index < 0)
   {
     PRINT_LOGS_VTR ("ERROR index %d out of range", index);
   }

@@ -5,7 +5,7 @@
 //---------------------------------------------------------------------------*/
 int fake_main1()
 {
-  int size = 10;
+  int size = 5;
 
   vector<int> a(size);
   vector<int> d(size);
@@ -23,10 +23,10 @@ int fake_main1()
   }
 
   std::cout << a << "\n";
-  vector<int> b = a * 2;
+  vector<int> b = a;
 
   std::cout << b << "\n";
-  vector<int> c = b;
+  vector<int> c (b);
 
   std::cout << c * 2 << "\n";
 
@@ -34,7 +34,7 @@ int fake_main1()
 }
 int fake_main2 ()
 {
-  int size = 10;
+  int size = 39;
   vector<bool> a(size);
 
   std::cout << "1:" << a << "\n";
@@ -46,8 +46,7 @@ int fake_main2 ()
   std::cout << "3:" << a << "\n";
   vector<bool> b(size);
 
-  //std::cout << c  << "\n";
-  std::cout << b << "\n";
+  std::cout << "b:" << b << "\n";
 
   a[4] = 1;
   std::cout << "4:" << a << "\n";
@@ -55,13 +54,12 @@ int fake_main2 ()
   a[5] = 1;
   std::cout << "5:" << a << "\n";
 
-  a[4] = 0;
+  a[3] = 0;
   std::cout << "6:" << a << "\n";
 
   a[5] = a.at(4);
   std::cout << "7:" << a << "\n";
-  //*/
-  std::cout << 100/64;
+
   return 0;
 }
 //---------------------------------------------------------------------------*/

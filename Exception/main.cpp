@@ -3,13 +3,13 @@
 #define MY_EXCEPTION(message, exc_code) my_exception(__FILE__, __func__, \
                                                      __LINE__, message, exc_code)
 //---------------------------------------------------------------------------*/
-void goo (void)
+void fun_one (void)
 {
   try
   {
-    if (0 == 0)
+    if (42)
     {
-      throw (MY_EXCEPTION("Testing", my_exception::DIV_BY_ZERO));
+      throw (MY_EXCEPTION(" Testing exception ", my_exception::ERR_UNTITLED));
     }
   }
   catch (my_exception& except)
@@ -18,22 +18,20 @@ void goo (void)
   }
 }
 //---------------------------------------------------------------------------*/
-void foo (void)
+void fun_two (void)
 {
-  goo ();
+  fun_one ();
 }
 //---------------------------------------------------------------------------*/
 int main (int argc, char const *argv[])
 {
   try
   {
-    foo ();
+    fun_two ();
   }
   catch (my_exception& except)
   {
-    except.where (std::cout);
-    except.what  (std::cout);
-    except.code  (std::cout);
+    except.info (std::cout);
   }
   return 0;
 }

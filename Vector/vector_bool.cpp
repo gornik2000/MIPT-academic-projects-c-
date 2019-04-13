@@ -21,26 +21,17 @@ vector<bool>::reference::operator bool () const
 //---------------------------------------------------------------------------*/
 vector<bool>::reference& vector<bool>::reference::operator= (bool b)
 {
-  if (b == true)
-  {
-    *arr_ = *arr_ | (1 << num_);
-    return *this;
-  }
-  *arr_ = *arr_ & ~(1 << num_);
+  if (b == true) *arr_ = *arr_ |  (1 << num_);
+  else           *arr_ = *arr_ & ~(1 << num_);
+
   return *this;
 }
 //---------------------------------------------------------------------------*/
 vector<bool>::reference& vector<bool>::reference::operator= (const vector<bool>::reference&  that)
 {
-  if (bool (that) == true)
-  {
-    *arr_ = *arr_ | (1 << num_);
-    arr_ = that.arr_;
-    num_ = that.num_;
+  if (bool (that) == true) *arr_ = *arr_ |  (1 << num_);
+  else                     *arr_ = *arr_ & ~(1 << num_);
 
-    return *this;
-  }
-  *arr_ = *arr_ & ~(1 << num_);
   arr_ = that.arr_;
   num_ = that.num_;
 
@@ -153,7 +144,7 @@ void vector<bool>::swap (vector<bool> &that)
 //---------------------------------------------------------------------------*/
 vector<bool>::reference vector<bool>::at (size_t index)
 {
-  if (index >= size_)
+  if (index >= size_ || index < 0)
   {
     PRINT_LOGS_VTR ("ERROR index %d out of range", index);
   }
@@ -175,7 +166,7 @@ vector<bool>::reference vector<bool>::operator[] (size_t index)
 //---------------------------------------------------------------------------*/
 const vector<bool>::reference vector<bool>::at (size_t index) const
 {
-  if (index >= size_)
+  if (index >= size_ || index < 0)
   {
     PRINT_LOGS_VTR ("ERROR index %d out of range", index);
   }

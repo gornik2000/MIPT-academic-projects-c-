@@ -1,4 +1,4 @@
-14:15:16  9084640 allocated C:\Users\Lenovo\Documents\GitHub\MIPT-academic-projects-cpp\Vector\vector_bool.cpp vector 77
-14:15:16  9084656 allocated C:\Users\Lenovo\Documents\GitHub\MIPT-academic-projects-cpp\Vector\vector_bool.cpp vector 77
-14:15:16  9084656 freed     C:\Users\Lenovo\Documents\GitHub\MIPT-academic-projects-cpp\Vector\vector_bool.cpp ~vector 87
-14:15:16  9084640 freed     C:\Users\Lenovo\Documents\GitHub\MIPT-academic-projects-cpp\Vector\vector_bool.cpp ~vector 87
+01:18:14  3120544 allocated C:\Users\Lenovo\Documents\GitHub\MIPT-academic-projects-cpp\Vector\vector_bool.cpp vector 68
+01:18:14  3120608 allocated C:\Users\Lenovo\Documents\GitHub\MIPT-academic-projects-cpp\Vector\vector_bool.cpp vector 68
+01:18:14  3120608 freed     C:\Users\Lenovo\Documents\GitHub\MIPT-academic-projects-cpp\Vector\vector_bool.cpp ~vector 78
+01:18:14  3120544 freed     C:\Users\Lenovo\Documents\GitHub\MIPT-academic-projects-cpp\Vector\vector_bool.cpp ~vector 78
