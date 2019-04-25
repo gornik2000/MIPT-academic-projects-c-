@@ -1,7 +1,5 @@
 //---------------------------------------------------------------------------*/
 #include "exception.h"
-#define MY_EXCEPTION(message, exc_code) my_exception(__FILE__, __func__, \
-                                                     __LINE__, message, exc_code)
 //---------------------------------------------------------------------------*/
 void fun_one (void)
 {
