@@ -169,8 +169,8 @@ MyNode<DData> *getN(void)
   }
   std::cout << atof(number);
   return MyNodeCreate<DData>(DDataCreate(CNST, 255, atof(number)),
-                             NULL,
-                             NULL
+                             (MyNode<DData> *)nullptr,
+                             (MyNode<DData> *)nullptr
                              );
 }
 //-----------------------------------------------------------------------------
@@ -182,13 +182,13 @@ MyNode<DData> *getN(void)
     {                                                                         \
       case 0:                                                                 \
         return MyNodeCreate<DData>(DDataCreate(tp, pt, val),                  \
-                                   NULL,                                      \
-                                   NULL                                       \
+                                   (MyNode<DData> *)nullptr,                  \
+                                   (MyNode<DData> *)nullptr                   \
                                    );                                         \
       case 1:                                                                 \
         return MyNodeCreate<DData>(DDataCreate(tp, pt, val),                  \
                                    getP(),                                    \
-                                   NULL                                       \
+                                   (MyNode<DData> *)nullptr                   \
                                    );                                         \
       default:                                                                \
         std::cout << " # ERROR. Arg for constant was not inputted";           \

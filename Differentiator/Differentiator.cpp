@@ -58,7 +58,7 @@ void Differentiate(const std::string &fileInName,
     fileOut << "\n\\end{equation}\n";
   }
 
-  dT.Repair();
+  //dT.Repair();
   TexEnding(fileOut);
 }
 //=============================================================================
@@ -92,11 +92,11 @@ MyNode<DData> *Copy(MyNode<DData> *n)
   nCopy->deepness_ = n->deepness_;
   nCopy->parent_   = n->parent_;
 
-  if (n->leftChild_ != NULL)
+  if (n->leftChild_  != nullptr)
   {
     nCopy->leftChild_  = Copy(n->leftChild_);
   }
-  if (n->rightChild_ != NULL)
+  if (n->rightChild_ != nullptr)
   {
     nCopy->rightChild_ = Copy(n->rightChild_);
   }
